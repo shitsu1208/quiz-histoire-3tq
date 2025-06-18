@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz Histoire 3TQ</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f9f9f9; padding: 20px; }
+    h1, h2 { color: #2c3e50; }
+    .quiz-block { background: #fff; padding: 20px; margin-bottom: 20px; border-radius: 10px; box-shadow: 0 0 8px rgba(0,0,0,0.1); }
+    .question { margin-bottom: 15px; }
+    button { padding: 10px 20px; background-color: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    .result { margin-top: 10px; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+<h1>Quiz interactif – Histoire 3TQ</h1>
+
+<div class="quiz-block">
+  <h2>C1 – Situer dans le temps</h2>
+  <div class="question">
+    <p>Quelle est la date de la chute de l'Empire romain d'Occident ?</p>
+    <label><input type="radio" name="q1" value="false"> 313</label><br>
+    <label><input type="radio" name="q1" value="true"> 476</label><br>
+    <label><input type="radio" name="q1" value="false"> 1453</label>
+  </div>
+</div>
+
+<div class="quiz-block">
+  <h2>C2 – Critiquer une source</h2>
+  <div class="question">
+    <p>Pourquoi le texte de 1962 sur les "barbares" est-il biaisé ?</p>
+    <label><input type="radio" name="q2" value="false"> Il a été écrit par un historien antique</label><br>
+    <label><input type="radio" name="q2" value="true"> Il exprime une vision romanocentrée et jugeante</label><br>
+    <label><input type="radio" name="q2" value="false"> Il ne mentionne pas les Romains</label>
+  </div>
+</div>
+
+<div class="quiz-block">
+  <h2>C3 – Comparer deux modèles</h2>
+  <div class="question">
+    <p>Qui avait le plus de droits politiques ?</p>
+    <label><input type="radio" name="q3" value="true"> Les citoyens athéniens</label><br>
+    <label><input type="radio" name="q3" value="false"> Les esclaves de Rome</label><br>
+    <label><input type="radio" name="q3" value="false"> Les empereurs romains</label>
+  </div>
+</div>
+
+<button onclick="corrigerQuiz()">Corriger le quiz</button>
+<div id="score" class="result"></div>
+
+<script>
+  function corrigerQuiz() {
+    let total = 0;
+    if (document.querySelector('input[name="q1"]:checked')?.value === "true") total++;
+    if (document.querySelector('input[name="q2"]:checked')?.value === "true") total++;
+    if (document.querySelector('input[name="q3"]:checked')?.value === "true") total++;
+
+    document.getElementById("score").innerText = `Score : ${total}/3`;
+  }
+</script>
+
+</body>
+</html>
